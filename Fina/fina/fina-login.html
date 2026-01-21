@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fina — Login</title>
+
+  <link rel="stylesheet" href="fina-login.css" />
+  <link rel="icon" type="image/png" href="ChatGPT Image 12 de nov. de 2025, 15_48_48.png  " />
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="login-box">
+
+      <h1>💰 Fina</h1>
+      <p class="subtitle">Acesse sua conta ou crie uma nova</p>
+
+      <!-- Formulário de Login -->
+      <form id="login-form" class="form active">
+        <input type="email" id="login-email" placeholder="E-mail" required />
+        <input type="password" id="login-password" placeholder="Senha" required />
+
+        <button type="submit" class="btn">Entrar</button>
+
+        <a href="#" id="forgot-password" class="forgot-link">Esqueci minha senha</a>
+
+        <p class="switch">
+          Não tem conta? <a href="#" id="show-register">Cadastre-se</a>
+        </p>
+      </form>
+
+      <!-- Formulário de Cadastro -->
+      <form id="register-form" class="form hidden">
+        <input type="text" id="register-name" placeholder="Nome completo" required />
+        <input type="email" id="register-email" placeholder="E-mail" required />
+        <input type="password" id="register-password" placeholder="Senha" required />
+
+        <button type="submit" class="btn">Cadastrar</button>
+
+        <p class="switch">
+          Já tem conta? <a href="#" id="show-login">Entrar</a>
+        </p>
+      </form>
+
+      <!-- Formulário de Recuperação -->
+      <form id="recover-form" class="form hidden">
+        <p class="recover-title">Recuperar Conta</p>
+
+        <input type="email" id="recover-email" placeholder="Digite seu e-mail" required />
+
+        <button type="submit" class="btn">Enviar recuperação</button>
+
+        <p class="switch">
+          Lembrou a senha? <a href="#" id="back-to-login">Voltar ao login</a>
+        </p>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="fina-login.js"></script>
+</body>
+</html>

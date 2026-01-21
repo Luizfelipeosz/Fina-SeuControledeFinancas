@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fina — Relatórios</title>
+  <link rel="stylesheet" href="MeuRelatorio.css" />
+  <link rel="icon" type="image/png" href="ChatGPT Image 12 de nov. de 2025, 15_48_48.png" />
+</head>
+<body>
+ <header>
+  <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <h1>📊 Relatórios — Fina</h1>
+      <div style="font-size:0.9rem;opacity:0.95">Visão de gastos por categoria e por mês</div>
+    </div>
+    <div>
+      <button id="back-btn">
+        ← Voltar 
+        <script>
+         // Redireciona para fina.html ao clicar no botão "Voltar"
+             document.getElementById("back-btn").addEventListener("click", () => {
+             window.location.href = "fina.html";});
+        </script>
+      </button>
+    </div>
+  </div>
+</header>
+
+  <main class="container">
+    <section class="card">
+      <div class="controls">
+        <label for="from">De:</label>
+        <input type="date" id="from" />
+        <label for="to">Até:</label>
+        <input type="date" id="to" />
+        <select id="group-by">
+          <option value="all">Todos os dados</option>
+          <option value="month">Agrupar por mês</option>
+        </select>
+        <button id="refresh">Atualizar</button>
+        <button id="download-png">Exportar PNG</button>
+      </div>
+      <p>Selecione um intervalo de datas para filtrar os dados dos gráficos. Se nenhum dado existir no localStorage, a página usará dados de exemplo</p>
+    </section>
+
+    <div class="row">
+      <div class="card">
+        <h2>Distribuição por categoria (Pizza)</h2>
+        <canvas id="pieChart"></canvas>
+      </div>
+
+      <div class="card">
+        <h2>Gastos por mês (Barras)</h2>
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Lista resumida</h2>
+      <div id="summary-list"></div>
+    </div>
+  </main>
+
+  <footer>© 2025 Fina - Luiz Felipe</footer>
+
+  <script src="MeuRelatorio.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,248 @@
+/* =====================================
+   RESET BÁSICO
+===================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #8302fc, #004080);
+  color: #222;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #fff;
+  background-color: #00000080;
+}
+
+/* =====================================
+   CABEÇALHO
+===================================== */
+header {
+  background: linear-gradient(185deg, #0b4fff, #19191a);
+  color: #fff;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centraliza o H1 */
+  position: relative; /* para o botão absoluto */
+  overflow: hidden;
+}
+
+header h1 {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  text-align: center;
+}
+
+#back-btn {
+  position: absolute;
+  right: 1rem;
+  background: #063599;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 5px #0b4fff, 0 0 10px #0b4fff;
+}
+
+#back-btn:hover {
+  background: rgb(4, 2, 150);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 15px #0b4fff, 0 0 30px #0b4fff, 0 0 50px #0b4fff;
+}
+
+#back-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 10px #0b4fff, 0 0 20px #0b4fff;
+}
+
+/* =====================================
+   CONTEÚDO
+===================================== */
+.container {
+  flex: 1;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* =====================================
+   CARTÕES
+===================================== */
+.card {
+  background: rgba(255, 255, 255, 0.15); /* glassmorphism */
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.card h2 {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+/* =====================================
+   CONTROLES
+===================================== */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.controls label {
+  font-weight: 500;
+  color: #fff;
+}
+
+.controls input,
+.controls select {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.95rem;
+}
+
+.controls button {
+  background: #0b4fff;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 5px #0b4fff, 0 0 10px #0b4fff;
+}
+
+.controls button:hover {
+  background: #0039d6;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 15px #0b4fff, 0 0 30px #0b4fff, 0 0 50px #0b4fff;
+}
+
+.controls button:active {
+  transform: scale(0.97);
+}
+
+/* =====================================
+   GRID RESPONSIVO
+===================================== */
+.row {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* =====================================
+   LISTA DE RESUMO
+===================================== */
+#summary-list {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+#summary-list div {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  justify-content: space-between;
+}
+
+#summary-list div:last-child {
+  border-bottom: none;
+}
+
+/* =====================================
+   RODAPÉ
+===================================== */
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #fff;
+  background: rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+/* =====================================
+   RESPONSIVIDADE ADICIONAL
+===================================== */
+@media (max-width: 600px) {
+  header {
+    padding: 1rem 0.75rem;
+  }
+
+  #back-btn {
+    padding: 0.5rem 0.9rem;
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+}
+
+/* =====================================
+   ANIMAÇÕES
+===================================== */
+@keyframes fadeSlideZoom {
+  0% { opacity: 0; transform: translateY(20px) scale(0.95); filter: blur(5px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+.animated {
+  opacity: 0;
+  animation: fadeSlideZoom 0.6s ease forwards;
+}
+
+.animated:nth-child(1) { animation-delay: 0.1s; }
+.animated:nth-child(2) { animation-delay: 0.2s; }
+.animated:nth-child(3) { animation-delay: 0.3s; }
+.animated:nth-child(4) { animation-delay: 0.4s; }
+.animated:nth-child(5) { animation-delay: 0.5s; }
+
+/* =====================================
+   TEMA ESCURO (automático)
+===================================== */
+@media (prefers-color-scheme: dark) {
+  body { background: #111827; color: #f3f4f6; }
+  .card { background: rgba(31,41,55,0.8); }
+  input, select { background: rgba(55,65,81,0.8); color: #f3f4f6; border: 1px solid #4b5563; }
+  .controls button { background: #2563eb; }
+  footer { background: rgba(31,41,55,0.8); border-top: 1px solid #374151; color: #9ca3af; }
+}

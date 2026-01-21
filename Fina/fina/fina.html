@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fina — Controle Financeiro</title>
+  <link rel="stylesheet" href="fina.css" />
+  <link rel="icon" type="image/png" href="ChatGPT Image 12 de nov. de 2025, 15_48_48.png" />
+  <style>
+    /* Relógio */
+    #clock {
+      font-family: 'Courier New', monospace;
+      font-size: 2rem;
+      color: #00eaff;
+      background: #00171f;
+      padding: 8px 16px;
+      border-radius: 6px;
+      display: inline-flex;;
+      box-shadow: 0 0 12px #00eaff;
+      margin-top: 10px;
+      margin-left: 1080px;      
+    }
+
+    /* Header */
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .header-buttons,
+    .header-right {
+      display: flex;
+      gap: 10px;
+    }
+
+    /* Título com logo */
+    .title-with-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .title-with-logo .logo {
+      width: 45px;
+      height: 45px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+
+      <!-- Botões do lado esquerdo -->
+      <div class="header-buttons">
+        <button id="contact-btn">Contatos</button>
+        <button id="report-btn" onclick="window.location.href='MeuRelatorio.html'">Relatórios</button>
+      </div>
+
+     <h1> 💰 Fina</h1>
+
+      <!-- Botões do lado direito -->
+      <div class="header-right">
+        <button id="logout-btn" class="logout-btn">Sair</button>
+        <button id="delete-account-btn" class="delete-btn">Excluir Conta</button>
+      </div>
+
+    </div>
+
+    <!-- Subtítulo -->
+    <p>Seu app de controle financeiro simples e rápido!</p>
+
+    <!-- Relógio -->
+    <div id="clock" class="clock"></div>
+  </header>
+
+  <main class="container">
+    <!-- Saldo -->
+    <section class="balance-section">
+      <h2>Saldo atual</h2>
+      <div id="balance">R$ 0,00</div>
+    </section>
+
+    <!--Formulario de Transferências-->
+    <section class="form-section">
+      <h2>Transferência</h2>
+      <form id="transfer-form">
+      <input type="text" id="transfer-description" placeholder="Descrição da transferência" required />
+      <input type="text" id="transfer-amount" placeholder="Valor transferido" required />
+      <button type="submit">Transferir</button>
+      </form>
+    </section>
+
+    <!-- Formulário de transações positivas -->
+    <section class="form-section">
+      <h2>Adicionar Transação</h2>
+      <form id="transaction-form">
+        <input type="text" id="description" placeholder="Descrição" required />
+        <input type="text" id="amount" placeholder="Valor"  required />
+        <button type="submit">Adicionar</button>
+      </form>
+    </section>
+
+    <!-- Formulario de transações negativas -->
+    <section class="form-section">
+      <h2>Adicionar Despesa</h2>
+      <form id="expense-form">
+        <input type="text" id="expense-description" placeholder="Descrição" required />
+        <input type="text" id="expense-amount" placeholder="Valor " required />
+        <button type="submit">Adicionar</button>
+      </form>
+    </section>
+
+    <!-- Resumo -->
+    <section class="summary-section">
+      <div>
+        <h3>Entradas</h3>
+        <div id="income">R$ 0,00</div>
+      </div>
+      <div>
+        <h3>Saídas</h3>
+        <div id="expenses">R$ 0,00</div>
+      </div>
+    </section>
+
+    <!-- Histórico -->
+    <section class="list-section">
+      <h2>Histórico</h2>
+      <ul id="transactions"></ul>
+      <button id="clear">Limpar histórico</button>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Fina - Luiz Felipe
+  </footer>
+
+  <script src="fina.js"></script>
+
+  <script>
+    // Botão Sair → redirecionar para login
+    document.getElementById("logout-btn").addEventListener("click", () => {
+      window.location.href = "fina-login.html";
+    });
+
+    // Botão Contatos
+    document.getElementById("contact-btn").addEventListener("click", () => {
+      window.location.href = "contatos.html";
+    });
+
+    // Botão Excluir Conta
+    document.getElementById("delete-account-btn").addEventListener("click", () => {
+      const confirmation = confirm("Tem certeza que deseja excluir sua conta? Esta ação é irreversível.");
+      if (!confirmation) return;
+
+      let users = JSON.parse(localStorage.getItem("users") || "[]");
+      const currentUserEmail = localStorage.getItem("loggedUser");
+      const updatedUsers = users.filter(user => user.email !== currentUserEmail);
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
+      localStorage.removeItem("loggedUser");
+      localStorage.removeItem(`fina_transactions_${currentUserEmail}`);
+
+      alert("Conta excluída com sucesso!");
+      window.location.href = "fina-login.html";
+    });
+
+    // Função para atualizar o relógio
+    function updateClock() {
+      const clock = document.getElementById("clock");
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, "0");
+      const minutes = String(now.getMinutes()).padStart(2, "0");
+      const seconds = String(now.getSeconds()).padStart(2, "0");
+      clock.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>

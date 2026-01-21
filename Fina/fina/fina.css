@@ -1,0 +1,278 @@
+/* =========================================================
+ 🌈 NOVA PALETA VIBRANTE E VARIÁVEIS GLOBAIS
+========================================================= */
+:root {
+  --bg: linear-gradient(180deg, #050612, #141432, #1b1f3b);
+  --primary: #1677ff;
+  --primary-dark: #0047ff;
+  --secondary: #ff007a;
+  --accent: #8a2cff;
+  --text: #59c3ff;
+  --muted: #b6d9ff;
+  --success: #00ffbf;
+  --danger: #ff2e63;
+  --card-bg: rgba(20, 25, 45, 0.55);
+  --shadow: rgba(0, 0, 0, 0.7);
+  --radius: 14px;
+  --transition: all 0.3s ease;
+}
+
+/* =========================================================
+ 🔄 RESET E BASE
+========================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.6;
+  transition: var(--transition);
+}
+title-with-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espaço entre logo e título */
+}
+
+.title-with-logo .logo {
+  width: 45px;   /* ajuste o tamanho da logo */
+  height: 45px;
+}
+
+/* =========================================================
+ 🧭 CABEÇALHO
+========================================================= */
+header {
+  width: 100%;
+  padding: 10px 10px 2px;
+  text-align: center;
+  background: linear-gradient(135deg, #27106a, #4216d0, #7b1bff);
+  color: #fff;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.header-content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+}
+
+/* Botões à esquerda */
+.header-buttons {
+  position: absolute;
+  left: 20px;
+  display: flex;
+  gap: 0.8rem;
+  z-index: 10;
+}
+
+/* Botões à direita */
+.header-right {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  gap: 0.8rem;
+  z-index: 10;
+}
+
+/* Botões especiais do header */
+.header-buttons button,
+.logout-btn,
+.delete-btn {
+  background: linear-gradient(135deg, #0047ff, #8922ff);
+  border: none;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Hover dos botões do header */
+.header-buttons button:hover,
+.logout-btn:hover,
+.delete-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #6e00ff, #0088ff);
+  box-shadow: 0 5px 18px rgba(76, 0, 255, 0.5);
+}
+
+/* Botão excluir */
+.delete-btn {
+  background: linear-gradient(135deg, #ff2965, #c4073f);
+}
+
+/* Botão sair */
+.logout-btn {
+  background: linear-gradient(135deg, #ff005c, #b8003a);
+}
+
+/* Título central */
+.header-content h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 2rem;
+  text-shadow: 0 0 15px rgba(255,255,255,0.7);
+  z-index: 5;
+}
+
+/* Subtítulo */
+header p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #e8e8ff;
+  text-shadow: 0 0 10px rgba(160, 80, 255, 0.7);
+}
+
+/* =========================================================
+ 🧱 CARDS
+========================================================= */
+section {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  padding: 22px 24px;
+  border-radius: var(--radius);
+  margin-bottom: 22px;
+  box-shadow: 0 8px 25px var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: var(--transition);
+}
+
+section:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* =========================================================
+ 💰 SALDO
+========================================================= */
+#balance {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--success);
+  text-shadow: 0 0 15px rgba(0, 255, 200, 0.7);
+}
+
+/* =========================================================
+ 🧾 INPUTS
+========================================================= */
+input {
+  padding: 12px;
+  border: 1px solid rgba(100, 150, 255, 0.35);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  transition: var(--transition);
+}
+
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(138, 44, 255, 0.7);
+}
+
+/* =========================================================
+ 🧩 BOTÕES GERAIS
+========================================================= */
+button {
+  background: linear-gradient(135deg, #004cff, #7812ff);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  transition: var(--transition);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #9f2cff, #007fff);
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(123, 0, 255, 0.8);
+}
+
+/* =========================================================
+ 📊 RESUMO
+========================================================= */
+.summary-section div {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(120, 120, 255, 0.3);
+}
+
+#income {
+  color: var(--success);
+  text-shadow: 0 0 10px rgba(0, 255, 190, 0.8);
+}
+
+#expenses {
+  color: var(--danger);
+  text-shadow: 0 0 10px rgba(255, 60, 100, 0.8);
+}
+
+/* =========================================================
+ 📋 TRANSAÇÕES
+========================================================= */
+li {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(140, 140, 255, 0.25);
+  color: #d9edff;
+}
+
+li.income {
+  border-left: 5px solid var(--success);
+  color: var(--success);
+  text-shadow: 0 0 10px rgba(0, 255, 200, 0.6);
+}
+
+li.expense {
+  border-left: 5px solid var(--danger);
+  color: var(--danger);
+  text-shadow: 0 0 10px rgba(255, 60, 90, 0.6);
+}
+
+/* LIMPAR */
+#clear {
+  background: linear-gradient(135deg, #ff0059, #bf0073);
+  transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+  border: none;
+  margin-top: 10px;
+}
+
+#clear:hover {
+  background: linear-gradient(135deg, #ff2e7f, #d4007f);
+  box-shadow: 0 0 25px rgba(255, 0, 110, 0.55),
+              0 0 45px rgba(255, 0, 110, 0.35);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+ ✨ ANIMAÇÃO GLOW
+========================================================= */
+@keyframes glow {
+  0% { box-shadow: 0 0 6px rgba(0, 152, 255, 0.4); }
+  50% { box-shadow: 0 0 18px rgba(0, 152, 255, 0.8); }
+  100% { box-shadow: 0 0 6px rgba(0, 152, 255, 0.4); }
+}
+
+button:hover,
+#balance {
+  animation: glow 2s infinite ease-in-out;
+}
